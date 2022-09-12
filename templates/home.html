@@ -2,8 +2,6 @@
 {% load static %}
 {% block content %}
 
-
-
 <html>   
 <body>
 	<!-- ========================= SECTION MAIN ========================= -->
@@ -28,87 +26,22 @@
 
 	
 <div class="row">
+	{% for book in books %}
 	<div class="col-md-3">
 		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img  src="{% static 'images/items/thriller.jpg' %}" style="height:200px;width:200px;margin:10;" > </a>
+			<a href="./book-detail.html" class="img-wrap"> <img  src="{{ book.book_image.url }}" style="height:200px;width:200px;margin:10px;" > </a>
 			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">It ends with us</a>
-				<div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
+				<a href="./book-detail.html" class="title">{{ book.book_name }}</a>
+				<div class="price mt-1">${{ book.book_price }}</div> <!-- price-wrap.// -->
 			</figcaption>
 		</div>
 	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img  src="{% static 'images/items/12539454-L.jpg' %}"  style="height:200px;width:200px;margin:10;" > </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Rhyming Words</a>
-				<div class="price mt-1">$280.00</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img  src="{% static 'images/items/8863687-L.jpg' %}"  style="height:200px;width:200px;margin:10;" > </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Python</a>
-				<div class="price mt-1">$56.00</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img height="200px" width="200px"  src="{% static 'images/items/10451472-L (1).jpg' %}"  style="height:200px;width:200px;margin:10;" > </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Django for Beginners</a>
-				<div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img   src="{% static 'images/items/11976903-L.jpg' %}"  style="height:200px;width:200px;margin:10;" > </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Baseball Coloring Book</a>
-				<div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img  src="{% static 'images/items/7990188-L.jpg' %}"  style="height:200px;width:200px;margin:10;" > </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Keeper Lost Cities Neverseen</a>
-				<div class="price mt-1">$280.00</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img  src="{% static 'images/items/thriller.jpg' %}"  style="height:200px;width:200px;margin:10;" > </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">The Eyes of Darkness</a>
-				<div class="price mt-1">$56.00</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img  src="{% static 'images/items/classic.jpg' %}"  style="height:200px;width:200px;margin:10;" > </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">IT</a>
-				<div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
+	{% endfor %}
 </div> <!-- row.// -->
 
 </div><!-- container // -->
 </section>
 <!-- ========================= SECTION  END// ========================= -->
-
-
-
-
 
 
 </body>
