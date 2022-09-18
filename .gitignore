@@ -2,5 +2,5 @@
 *.sqlite3
 env/*
 */migrations/*
-env/  
+env/
 
