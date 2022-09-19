@@ -29,12 +29,10 @@
 			<div class="card-body">
 
 				<ul class="list-menu">
-				<li><a href="#">Educational </a></li>
-				<li><a href="#">Classic </a></li>
-				<li><a href="#">Kids Books</a></li>
-				<li><a href="#">Thriller </a></li>
-				<li><a href="#">Biographies</a></li>
-				<li><a href="#">Mystery</a></li>
+					<li><a href="{% url 'store' %}">All Books</a></li>
+					{% for category in links %}
+				<li><a href="{{category.get_url}}">{{category.category_name}}</a></li>
+				    {% endfor %}
 				</ul>
 
 			</div> <!-- card-body.// -->
@@ -78,7 +76,7 @@
 					</select>
 				</div>
 				</div> <!-- form-row.// -->
-				<button class="btn btn-block btn-primary">Apply</button>
+				<button class="btn btn-block btn-dark">Apply</button>
 			</div><!-- card-body.// -->
 		</div>
 	</article> <!-- filter-group .// -->
@@ -100,16 +98,18 @@
 	<div class="col-md-4">
 		<figure class="card card-product-grid">
 			<div class="img-wrap">
-				<img src="{{ book.book_image.url }}" style="height:200px;width:200px;margin:10px;" >
+
+				<a href="{{book.get_url}}"><img src="{{ book.book_image.url }}" style="height:200px;width:200px;margin:10px;"></a>
+				
 			</div> <!-- img-wrap.// -->
 			<figcaption class="info-wrap">
 				<div class="fix-height">
-					<a href="./book-detail.html" class="title">{{ book.book_name }} </a>
+					<a href={{book.get_url}} class="title">{{ book.book_name }} </a>
 					<div class="price-wrap mt-2">
 						<span class="price">${{ book.book_price }}</span>
 					</div> <!-- price-wrap.// -->
 				</div>
-				<a href="#" class="btn btn-block btn-primary">Add to cart </a>
+				<a href="{% url 'add_cart' book.id %}" class="btn btn-block btn-dark">Add to cart </a>
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->

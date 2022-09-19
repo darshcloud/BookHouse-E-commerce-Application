@@ -2,6 +2,7 @@ from tabnanny import verbose
 from django.db import models
 
 from django.utils import timezone
+from django.urls import reverse
 
 # Create your models here.
 class category(models.Model):
@@ -12,6 +13,10 @@ class category(models.Model):
     class Meta:
         verbose_name = 'category'
         verbose_name_plural = 'categories'
+
+    def get_url(self):
+        return reverse('books_by_category', args=[self.slug])
+    
     def __str__(self):
         return self.category_name
 

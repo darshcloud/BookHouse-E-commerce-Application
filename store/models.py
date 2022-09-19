@@ -1,5 +1,6 @@
 from django.db import models
 from category.models import category
+from django.urls import reverse
 
 
 # Create your models here.
@@ -15,6 +16,10 @@ class Book(models.Model):
     book_category = models.ForeignKey(category, on_delete=models.CASCADE)
     creation_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
+
+    def get_url(self):
+        return reverse('book_detail',args=[self.book_category.slug,self.slug])
+
 
     def __str__(self):
         return self.book_name
