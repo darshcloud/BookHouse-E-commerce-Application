@@ -9,7 +9,7 @@
 		<div class="container">
 		
 		<div class="intro-banner-wrap">
-			<img src="{% static './images/banners/1.jpg' %}" class="img-fluid rounded">
+			<img src="{% static './images/banners/cover.jpg' %}" class="img-fluid rounded" style="height:400px;width:1200px;margin:20px;" >
 		</div>
 		
 		</div> <!-- container //  -->
@@ -19,7 +19,7 @@
 		<section class="section-intro padding-y-sm">
 			<div class="container">
 <header class="section-heading">
-	<a href="./store.html" class="btn btn-outline-primary float-right">See all</a>
+	<a href="{% url 'store' %}" class="btn btn-outline-dark float-right">See all</a>
 	<h3 class="section-title">Popular Books</h3>
 </header><!-- sect-heading -->
 
@@ -29,9 +29,9 @@
 	{% for book in books %}
 	<div class="col-md-3">
 		<div class="card card-product-grid">
-			<a href="./book-detail.html" class="img-wrap"> <img  src="{{ book.book_image.url }}" style="height:200px;width:200px;margin:10px;" > </a>
+			<a href="{{book.get_url}}" class="img-wrap"> <img  src="{{ book.book_image.url }}" style="height:200px;width:200px;margin:10px;" > </a>
 			<figcaption class="info-wrap">
-				<a href="./book-detail.html" class="title">{{ book.book_name }}</a>
+				<a href="{{book.get_url}}" class="title">{{ book.book_name }}</a>
 				<div class="price mt-1">${{ book.book_price }}</div> <!-- price-wrap.// -->
 			</figcaption>
 		</div>
