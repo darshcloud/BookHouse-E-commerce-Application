@@ -1,9 +1,13 @@
 from http.client import HTTPResponse
+from multiprocessing import context
 from django.shortcuts import render, get_object_or_404
 from .models import Book
 from category.models import category
 from carts.models import CartItem
+from django.db.models import Q
 from carts.views import _cart_id
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.http import HttpResponse 
 
 
 
@@ -16,13 +20,19 @@ def store(request, category_slug=None):
     if category_slug is not None:
         book_categories = get_object_or_404(category, slug=category_slug)
         books = Book.objects.filter(book_category=book_categories, is_available=True)
+        paginator = Paginator(books, 2)
+        page = request.GET.get('page')
+        paged_books = paginator.get_page(page)
         books_count = books.count()
     else:
-        books = Book.objects.all().filter(is_available=True)
+        books = Book.objects.all().filter(is_available=True).order_by('id')
+        paginator = Paginator(books, 6)
+        page = request.GET.get('page')
+        paged_books = paginator.get_page(page)
         books_count = books.count()
 
     context = {
-        'books': books,
+        'books': paged_books,
         'books_count': books_count,
     }
     return render(request, 'store/store.html', context)
@@ -45,3 +55,18 @@ def book_detail(request, category_slug,book_slug):
     }
 
     return render(request,'store/book_detail.html',context)
+
+
+def search(request):
+    if 'keyword' in request.GET:
+        keyword = request.GET['keyword']
+        if keyword:
+
+            books = Book.objects.order_by('-creation_date').filter(Q(book_description__icontains=keyword) | Q(book_name__icontains=keyword))
+            print(books)
+            books_count = books.count()
+    context = {
+        'books':books,
+        'books_count': books_count,
+         }       
+    return render(request,'store/store.html',context)
