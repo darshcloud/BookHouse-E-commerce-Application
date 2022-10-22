@@ -21,9 +21,9 @@
     <table class="table table-borderless table-shopping-cart">
     <thead class="text-muted">
     <tr class="small text-uppercase">
-      <th scope="col">Product</th>
-      <th scope="col" width="185">Quantity</th>
-      <th scope="col" width="110">Price</th>
+      <th scope="col" width>Books</th>
+      <th scope="col" width="120">Quantity</th>
+      <th scope="col" width="120">Price</th>
       <th scope="col" class="text-right" width="200"> </th>
     </tr>
     </thead>
@@ -33,7 +33,7 @@
     <tr>
         <td>
             <figure class="itemside align-items-center">
-                <div class="aside"><img src="{{cart_item.book.book_image.url}}" class="img-sm"style="height:200px;width:200px;margin:10px;"></div>
+                <div class="aside"><img src="{{cart_item.book.book_image.url}}" class="img-wrap" style="height:150px;width:150px;margin:10px;"></div>
                 <figcaption class="info">
                     <a href="{{ cart_item.book.get_url }}" class="title text-dark">{{cart_item.book.book_name}}</a>
                     
@@ -92,7 +92,7 @@
                 <p class="text-center mb-3">
                     <img src="{% static './images/misc/payments.png' %}" height="26">
                 </p>
-                <a href="./place-order.html" class="btn btn-primary btn-block"> Checkout </a>
+                <a href="{% url 'checkout' %}" class="btn btn-primary btn-block"> Checkout </a>
                 <a href="{% url 'store'%}" class="btn btn-light btn-block">Continue Shopping</a>
             </div> <!-- card-body.// -->
             </div> <!-- card.// -->
