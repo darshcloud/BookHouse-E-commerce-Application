@@ -42,38 +42,66 @@ def add_cart(request, book_id):
         )
     cart.save()
 
-    try:
-        cart_item = CartItem.objects.get(book=book, cart=cart)
-        cart_item.quantity += 1
-        cart_item.save()
-    except CartItem.DoesNotExist:
+    is_cart_item_exists = CartItem.objects.filter(book=book, cart=cart).exists()
+    if is_cart_item_exists:
+        cart_item = CartItem.objects.filter(book=book, cart=cart)
+        # existing book formats -> database
+        # current book format -> book_formats
+        # item_id -> database
+        existing_bookformat_list = []
+        id = []
+        for item in cart_item:
+            existing_bookformat = item.book_format.all()
+            existing_bookformat_list.append(list(existing_bookformat))
+            id.append(item.id)
+
+        print(existing_bookformat_list)
+
+        if book_formats in existing_bookformat_list:
+            # increase the cart item quantity
+            index = existing_bookformat_list.index(book_formats)
+            item_id = id[index]
+            item = CartItem.objects.get(book=book, id=item_id)
+            item.quantity += 1;
+            item.save()
+        else:
+            item = CartItem.objects.create(book=book, quantity=1, cart=cart)
+            if len(book_formats) > 0:
+                item.book_format.clear()
+                item.book_format.add(*book_formats)
+            item.save()
+    else:
         cart_item = CartItem.objects.create(
             book=book,
             quantity=1,
             cart=cart,
         )
-
+        if len(book_formats) > 0:
+            cart_item.book_format.clear()
+            cart_item.book_format.add(*book_formats)
         cart_item.save()
-
     return redirect('cart')
 
 
-def remove_cart(request, book_id):
+def remove_cart(request, book_id, cart_item_id):
     cart = Cart.objects.get(cart_id=_cart_id(request))
     book = get_object_or_404(Book, id=book_id)
-    cart_item = CartItem.objects.get(book=book, cart=cart)
-    if cart_item.quantity > 1:
-        cart_item.quantity -= 1
-        cart_item.save()
-    else:
-        cart_item.delete()
+    try:
+        cart_item = CartItem.objects.get(book=book, cart=cart, id=cart_item_id)
+        if cart_item.quantity > 1:
+            cart_item.quantity -= 1
+            cart_item.save()
+        else:
+            cart_item.delete()
+    except:
+        pass
     return redirect('cart')
 
 
-def remove_cart_item(request, book_id):
+def remove_cart_item(request, book_id, cart_item_id):
     cart = Cart.objects.get(cart_id=_cart_id(request))
     book = get_object_or_404(Book, id=book_id)
-    cart_item = CartItem.objects.get(book=book, cart=cart)
+    cart_item = CartItem.objects.get(book=book, cart=cart, id=cart_item_id)
     cart_item.delete()
     return redirect('cart')
 
