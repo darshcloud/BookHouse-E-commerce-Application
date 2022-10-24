@@ -29,7 +29,7 @@ def add_cart(request, book_id):
             try:
                 book_format = BookFormat.objects.get(book=book, book_variation__iexact=key,
                                                      book_format_value__iexact=value)
-                #list of book formats
+                # list of book formats
                 book_formats.append(book_format)
             except:
                 pass
