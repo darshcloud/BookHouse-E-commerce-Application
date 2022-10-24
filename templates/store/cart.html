@@ -36,6 +36,13 @@
                 <div class="aside"><img src="{{cart_item.book.book_image.url}}" class="img-wrap" style="height:150px;width:150px;margin:10px;"></div>
                 <figcaption class="info">
                     <a href="{{ cart_item.book.get_url }}" class="title text-dark">{{cart_item.book.book_name}}</a>
+                  <!--  <p class="text-muted small">
+					{% if cart_item.bookformat.all %}
+						{% for item in cart_item.bookformat.all %}
+							{{ item.book_format_value|capfirst }} <br>
+						{% endfor %}
+					{% endif %}
+				</p>-->
                     
                 </figcaption>
             </figure>

@@ -1,10 +1,11 @@
 from http.client import HTTPResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from store.models import Book
+from store.models import Book, BookFormat
 from django.core.exceptions import ObjectDoesNotExist
 
 from .models import Cart, CartItem
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -18,6 +19,21 @@ def _cart_id(request):
 
 def add_cart(request, book_id):
     book = Book.objects.get(id=book_id)  # get the book
+    book_formats = []
+    if request.method == 'POST':
+        for item in request.POST:
+            key = item
+            value = request.POST[key]
+            print(key, value)
+
+            try:
+                book_format = BookFormat.objects.get(book=book, book_variation__iexact=key,
+                                                     book_format_value__iexact=value)
+                #list of book formats
+                book_formats.append(book_format)
+            except:
+                pass
+
     try:
         cart = Cart.objects.get(cart_id=_cart_id(request))  # get the cart using cart_id present in the session
     except Cart.DoesNotExist:
@@ -85,6 +101,7 @@ def cart(request, total=0, quantity=0, cart_items=None):
     return render(request, 'store/cart.html', context)
 
 
+@login_required(login_url='login')
 def checkout(request, total=0, quantity=0, cart_items=None):
     try:
         tax = 0
