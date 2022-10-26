@@ -1,5 +1,6 @@
 from django.db import models
 from store.models import Book, BookFormat
+from accounts.models import Account
 
 
 # Create your models here.
@@ -12,9 +13,10 @@ class Cart(models.Model):
 
 
 class CartItem(models.Model):
+    user = models.ForeignKey(Account, on_delete=models.CASCADE, null=True)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     book_format = models.ManyToManyField(BookFormat, blank=True)
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, null=True)
     quantity = models.IntegerField()
     is_active = models.BooleanField(default=True)
 
