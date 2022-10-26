@@ -18,8 +18,30 @@ class Book(models.Model):
     modified_date = models.DateTimeField(auto_now=True)
 
     def get_url(self):
-        return reverse('book_detail',args=[self.book_category.slug,self.slug])
-
+        return reverse('book_detail', args=[self.book_category.slug, self.slug])
 
     def __str__(self):
         return self.book_name
+
+
+class BookFormatManager(models.Manager):
+    def bookformat(self):
+        return super(BookFormatManager, self).filter(book_variation='format', is_active=True)
+
+
+book_variation_choice = (
+    ('format', 'format'),
+)
+
+
+class BookFormat(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book_variation = models.CharField(max_length=100, choices=book_variation_choice)
+    book_format_value = models.CharField(max_length=100)
+    is_active = models.BooleanField(default=True)
+    creation_date = models.DateTimeField(auto_now=True)
+
+    objects = BookFormatManager()
+
+    def __str__(self):
+        return self.book_format_value

@@ -80,7 +80,7 @@
 					</select>
 				</div>
 				</div> <!-- form-row.// -->
-				<button class="btn btn-block btn-dark">Apply</button>
+				<button class="btn btn-block btn-info">Apply</button>
 			</div><!-- card-body.// -->
 		</div>
 	</article> <!-- filter-group .// -->
@@ -103,8 +103,8 @@
 	<div class="col-md-4">
 		<figure class="card card-product-grid">
 			<div class="img-wrap">
-
-				<a href="{{book.get_url}}"><img src="{{ book.book_image.url }}" style="height:200px;width:200px;margin:10px;"></a>
+				<!--style="height:200px;width:200px;margin:10px;"-->
+				<a href="{{book.get_url}}"><img src="{{ book.book_image.url }}"></a>
 				
 			</div> <!-- img-wrap.// -->
 			<figcaption class="info-wrap">
@@ -114,7 +114,7 @@
 						<span class="price">${{ book.book_price }}</span>
 					</div> <!-- price-wrap.// -->
 				</div>
-				<a href="{{book.get_url}}" class="btn btn-block btn-dark">View Details </a>
+				<a href="{{book.get_url}}" class="btn btn-block btn-info">View Details </a>
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->
