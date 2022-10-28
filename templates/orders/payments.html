@@ -4,7 +4,6 @@
 
 <section class="section-content padding-y bg">
     <div class="container">
-
         <!-- ============================ COMPONENT 1 ================================= -->
         <h4 class="text-center mb-10">Review your order and make Payment</h4>
         <div class="row">
@@ -115,7 +114,10 @@
                         <p class="text-center mb-3">
                             <img src="{% static './images/misc/payments.png' %}" height="26">
                         </p>
-                        <a href="{% url 'checkout' %}" class="btn btn-primary btn-block"> Make Payment </a>
+                        
+                        <div id="paypal-button-container">
+                            <!-- PayPal Button Will Load -->
+                        </div>
                        
                     </div> <!-- card-body.// -->
                 </div> <!-- card.// -->
@@ -129,5 +131,73 @@
 
     </div> <!-- container .//  -->
 </section>
+<script>
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var amount = "{{ grand_total }}"
+    var url = "{% url 'payments' %}"
+    var csrf_token = getCookie('csrf_token');
+    var orderID = "{{order.order_number}}"
+    console.log(orderID)
+    var payment_method = 'PayPal'
+    // Render the PayPal button into #paypal-button-container
+    paypal.Buttons({
+        style: {
+            color:  'blue',
+            shape:  'rect',
+            label:  'pay',
+            height: 40
+        },
+
+        // Set up the transaction
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: amount,
+                    }
+                }]
+            });
+        },
+
+        // Finalize the transaction
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                // Show a success message to the buyer
+                console.log(details);
+                sendData();
+                function sendData(){
+                    console.log(url)
+                    fetch(url, {
+                        method : "POST",
+                        headers: {
+                            "content-type": "application/json",
+                            "X-csrf_token": csrf_token,
+                        },
+                        body: JSON.stringify({
+                            orderID: orderID,
+                            transID: details.id,
+                            payment_method: payment_method,
+                            status: details.status,
+                        }),
+                    })
+                }
+                });
+        }
+    }).render('#paypal-button-container');
+</script>
 
 {% endblock %}

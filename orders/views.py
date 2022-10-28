@@ -3,12 +3,15 @@ from locale import currency
 from django.shortcuts import render,redirect
 from django.http import HttpResponse 
 import datetime
+import json
 
 from carts.models import CartItem
 from .forms import OrderForm
 from .models import Order
 
 def payments(request):
+    body = json.loads(request.body)
+    print(body)
     return render(request,'orders/payments.html')
 
 # Create your views here.
