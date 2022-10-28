@@ -149,7 +149,7 @@
     }
     var amount = "{{ grand_total }}"
     var url = "{% url 'payments' %}"
-    var csrf_token = getCookie('csrf_token');
+    var csrftoken = getCookie('csrftoken');
     var orderID = "{{order.order_number}}"
     console.log(orderID)
     var payment_method = 'PayPal'
@@ -174,26 +174,25 @@
         },
 
         // Finalize the transaction
-        onApprove: function(data, actions) {
-            return actions.order.capture().then(function(details) {
-                // Show a success message to the buyer
-                console.log(details);
-                sendData();
-                function sendData(){
-                    console.log(url)
-                    fetch(url, {
-                        method : "POST",
-                        headers: {
-                            "content-type": "application/json",
-                            "X-csrf_token": csrf_token,
-                        },
-                        body: JSON.stringify({
-                            orderID: orderID,
-                            transID: details.id,
-                            payment_method: payment_method,
-                            status: details.status,
-                        }),
-                    })
+		onApprove: function(data, actions) {
+			return actions.order.capture().then(function(details) {
+				// Show a success message to the buyer
+				console.log(details);
+				sendData();
+				function sendData(){
+					fetch(url, {
+						method : "POST",
+						headers: {
+							"Content-type": "application/json",
+							"X-CSRFToken": csrftoken,
+						},
+						body: JSON.stringify({
+							orderID: orderID,
+							transID: details.id,
+							payment_method: payment_method,
+							status: details.status,
+						}),
+					})
                 }
                 });
         }
