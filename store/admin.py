@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Book, BookFormat
+from .models import Book, BookFormat,ReviewRating
+
 
 
 # Register your models here.
@@ -17,3 +18,5 @@ class BookVariationAdmin(admin.ModelAdmin):
 
 admin.site.register(Book, BookAdmin)
 admin.site.register(BookFormat, BookVariationAdmin)
+admin.site.register(ReviewRating)
+
