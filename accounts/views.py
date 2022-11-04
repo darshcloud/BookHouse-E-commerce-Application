@@ -165,7 +165,7 @@ def dashboard(request):
      context = {
          'orders_count': orders_count,
          }
-     return render(request, 'accounts/dashboard.html')
+     return render(request, 'accounts/dashboard.html',context)
 
 
 def resetPassword(request):
