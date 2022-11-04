@@ -82,7 +82,7 @@
 
 
               
-                <form action="{% url 'submit_review' single_book.id %}" method="POST">
+                <form action="{% url 'submit_review' single_book.id %}" method="POST" >
                     {% csrf_token %}
                     <h5> write your Review</h5>
                     
@@ -106,7 +106,7 @@
                         </div>
                         <br>
                         Review Title: 
-                    <input type="text" class="form-control" name="subject">
+                    <input type="text" class="form-control" name="subject" >
                     <br>
                     Review: 
                     <textarea name="review" rows="4" class="form-control"></textarea>
@@ -114,7 +114,7 @@
                     {% if user.is_authenticated %}
                     {% if orderbook %}
 
-                    <input type="submit" value="submit Review" class="btn btn-primary">
+                    <input type="submit" value="submit Review" class="btn btn-primary" >
                     {% else %}
                     <p>you must purchase this book to post a review</p>
                     {% endif %}
