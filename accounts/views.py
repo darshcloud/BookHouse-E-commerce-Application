@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from accounts.forms import RegistrationForm
 from .forms import RegistrationForm
 from .models import Account
+from orders.models import Order
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
@@ -159,7 +160,12 @@ def activate(request, uidb64, token):
 
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+     orders = Order.objects.order_by('-created_at').filter(user_id=request.user.id, is_ordered=True)
+     orders_count = orders.count()
+     context = {
+         'orders_count': orders_count,
+         }
+     return render(request, 'accounts/dashboard.html')
 
 
 def resetPassword(request):
