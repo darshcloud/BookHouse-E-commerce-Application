@@ -120,13 +120,16 @@ AUTH_USER_MODEL = 'accounts.Account'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# Database
+# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+
 DATABASES = {
 'default': {
 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-'NAME': '',
+'NAME': 'bookhoxxxx',
 'USER': 'postgres',
-'PASSWORD': '',
-'HOST': 'bookhousedatabase.xxxxxxxxxxxxx.rds.amazonaws.com',
+'PASSWORD': 'xxxxxxxxx',
+'HOST': 'bookhousedatabase.xxxxxxxxx.rds.amazonaws.com',
 'PORT': '5432',
 }
 }
@@ -137,8 +140,6 @@ DATABASES = {
 # 'NAME': BASE_DIR / 'db.sqlite3',
 
 # }
-# }
-
 
 
 # Password validation
