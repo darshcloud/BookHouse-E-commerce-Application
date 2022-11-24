@@ -27,7 +27,24 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)  # boolean value
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '0.0.0.0',
+    'https://bookhouse.space',
+    'bookhouse.space',
+    'bookhouselb-761815037.us-east-1.elb.amazonaws.com',
+    '0.0.0.0:8000',
+    '54.211.232.154',
+    '54.211.232.154:8000',
+    'localhost',
+    'localhost:8000',
+    '127.0.0.1',
+        ]
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','https')
+USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_PORT = True
+CSRF_TRUSTED_ORIGINS = ["https://bookhouse.space/","https://bookhouse.space/*","https://localhost","https://127.0.0.1","http://localhost","http://127.0.0.1", "https://bookhouselb-761815037.us-east-1.elb.amazonaws.com"]
+
+
 
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'login'
