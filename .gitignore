@@ -3,4 +3,5 @@
 env/*
 */migrations/*
 env/
+.env
 

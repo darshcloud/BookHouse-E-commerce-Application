@@ -2,37 +2,44 @@
 {% load static %}
 {% block content %}
 
-<html>   
+<html>
 <body>
-	<!-- ========================= SECTION MAIN ========================= -->
 	<section class="section-intro padding-y-sm">
 		<div class="container">
-		
+
 		<div class="intro-banner-wrap">
-			<img src="{% static './images/banners/1.jpg' %}" class="img-fluid rounded">
+			<img src="{% static './images/banners/cover.jpg' %}" class="img-fluid rounded" style="height:400px;width:1160px;margin:20px;" >
 		</div>
-		
+
 		</div> <!-- container //  -->
 		</section>
-		<!-- ========================= SECTION MAIN END// ========================= -->
-
 		<section class="section-intro padding-y-sm">
 			<div class="container">
 <header class="section-heading">
-	<a href="./store.html" class="btn btn-outline-primary float-right">See all</a>
+	<a href="{% url 'store' %}" class="btn btn-outline-info float-right">See all</a>
 	<h3 class="section-title">Popular Books</h3>
-</header><!-- sect-heading -->
+</header>
 
 
-	
+
 <div class="row">
 	{% for book in books %}
 	<div class="col-md-3">
 		<div class="card card-product-grid">
-			<a href="./book-detail.html" class="img-wrap"> <img  src="{{ book.book_image.url }}" style="height:200px;width:200px;margin:10px;" > </a>
+            <!--style="height:200px;width:200px;margin:10px;"-->
+			<a href="{{book.get_url}}" class="img-wrap"> <img  src="{{ book.book_image.url }}"> </a>
 			<figcaption class="info-wrap">
-				<a href="./book-detail.html" class="title">{{ book.book_name }}</a>
+				<a href="{{book.get_url}}" class="title">{{ book.book_name }}</a>
 				<div class="price mt-1">${{ book.book_price }}</div> <!-- price-wrap.// -->
+				<div class="rating-star">
+					<span>
+						<i class="fa fa-star{% if book.averageReview < 0.5 %}-o {% elif book.averageReview >= 0.5 and book.averageReview < 1  %}-half-o{% endif %}" aria-hidden="true"></i>
+						<i class="fa fa-star{% if book.averageReview < 1.5 %}-o {% elif book.averageReview >= 1.5 and book.averageReview < 2  %}-half-o{% endif %}" aria-hidden="true"></i>
+						<i class="fa fa-star{% if book.averageReview < 2.5 %}-o {% elif book.averageReview >= 2.5 and book.averageReview < 3  %}-half-o{% endif %}" aria-hidden="true"></i>
+						<i class="fa fa-star{% if book.averageReview < 3.5 %}-o {% elif book.averageReview >= 3.5 and book.averageReview < 4  %}-half-o{% endif %}" aria-hidden="true"></i>
+						<i class="fa fa-star{% if book.averageReview < 4.5 %}-o {% elif book.averageReview >= 4.5 and book.averageReview < 5  %}-half-o{% endif %}" aria-hidden="true"></i>
+					</span>
+				</div>
 			</figcaption>
 		</div>
 	</div> <!-- col.// -->
@@ -41,7 +48,6 @@
 
 </div><!-- container // -->
 </section>
-<!-- ========================= SECTION  END// ========================= -->
 
 
 </body>
