@@ -47,8 +47,8 @@ pipeline {
                 sh 'pip3 install awscli'
                 sh 'touch bookhouse.tar.gz'
                 sh 'tar --exclude=bookhouse.tar.gz   -zcvf bookhouse.tar.gz .'
-                sh 'aws s3 cp bookhouse.tar.gz s3://spartandevscmpe272/bookhouse-$GIT_HASH.tar.gz'
-                sh 'aws s3 cp bookhouse.tar.gz s3://spartandevscmpe272/bookhouse.tar.gz'
+                sh 'aws s3 cp bookhouse.tar.gz s3://spartandevscmpe-272/bookhouse-$GIT_HASH.tar.gz'
+                sh 'aws s3 cp bookhouse.tar.gz s3://spartandevscmpe-272/bookhouse.tar.gz'
                 sh 'rm -rf spartandevs'
             }
         }
