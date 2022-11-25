@@ -32,8 +32,7 @@ pipeline {
                 sh 'pip install awscli'
                 sh 'touch bookhouse.tar.gz'
                 sh 'tar --exclude=bookhouse.tar.gz   -zcvf bookhouse.tar.gz .'
-                sh 'DATE=`date '+%s'`'
-                sh 'aws s3 cp bookhouse.tar.gz s3://calorietracker283/bookhouse-$DATE.tar.gz'
+                sh 'aws s3 cp bookhouse.tar.gz s3://calorietracker283/bookhouse-1234.tar.gz'
                 sh 'aws s3 cp bookhouse.tar.gz s3://calorietracker283/bookhouse.tar.gz'
             }
         }
