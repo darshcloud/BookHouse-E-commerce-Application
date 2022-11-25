@@ -1,5 +1,9 @@
 pipeline { 
-    agent { label 'Jenkins' }
+    agent { 
+        node {
+            label 'built-in' 
+            } 
+    }
 
     options {
         skipStagesAfterUnstable()
