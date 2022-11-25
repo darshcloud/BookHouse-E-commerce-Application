@@ -39,6 +39,7 @@ pipeline {
                 sh 'tar --exclude=bookhouse.tar.gz   -zcvf bookhouse.tar.gz .'
                 sh 'aws s3 cp bookhouse.tar.gz s3://spartandevscmpe272/bookhouse-1234.tar.gz'
                 sh 'aws s3 cp bookhouse.tar.gz s3://spartandevscmpe272/bookhouse.tar.gz'
+                sh 'rm -rf spartandevs'
             }
         }
     }
