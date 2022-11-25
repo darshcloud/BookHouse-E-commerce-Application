@@ -1,0 +1,1 @@
+*/5 * * * *  rm -rf /home/ubuntu/cicd/*;aws s3 cp s3://spartandevscmpe-272/bookhouse.tar.gz /home/ubuntu/cicd/; cd /home/ubuntu/cicd/ ;mkdir bookhousedeploy; tar  -xvf bookhouse.tar.gz -C bookhousedeploy; cp -R -u /home/ubuntu/cicd/bookhousedeploy /home/ubuntu/bookhousedeploy;
