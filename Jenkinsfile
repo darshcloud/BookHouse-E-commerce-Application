@@ -1,4 +1,4 @@
-
+node('jenkins'){
 pipeline { 
     agent any
 
@@ -59,4 +59,5 @@ pipeline {
                 sh 'curl -X POST --user $USERNAME:$PASSWORD --data  "{\\"state\\": \\"failure\\"}" --url https://api.github.com/repos/hegdebhavya/Spartandevs/statuses/$GIT_COMMIT'}
             }
     }
+}
 }
