@@ -12,12 +12,12 @@ pipeline {
         }
         stage('Lint with Black'){
             steps {
-                sh 'pip3 install black; black .'
+                sh 'pip3 install black; export PATH=$PATH:/var/lib/jenkins/.local/bin ;    black .'
             }
         }
         stage('Lint with isort'){
             steps {
-                sh 'pip3 install isort; isort .'
+                sh 'pip3 install isort;export PATH=$PATH:/var/lib/jenkins/.local/bin;isort .'
             }
         }
         stage('Deploy') {
