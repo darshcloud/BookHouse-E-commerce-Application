@@ -1,5 +1,5 @@
 pipeline { 
-    agent jenkins
+    agent { label 'jenkins' }
 
     options {
         skipStagesAfterUnstable()
