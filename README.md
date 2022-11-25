@@ -1,20 +1,20 @@
 
 # CMPE 272 project of group SpartanDevs 
-Course Name : Enterprise Software Platforms - CMPE 272
+<b>Course Name :</b> Enterprise Software Platforms
 
-Project Name  : Bookhouse 
+<b>Project Name  :</b> Bookhouse 
 
-Application URL : https://bookhouse.space
+<b>Application URL :</b> https://bookhouse.space
 
-University Name : [San Jose State University](https://www.sjsu.edu/)
+<b>University Name :</b> [San Jose State University](https://www.sjsu.edu/)
 
 
 
-Professor's Name : Andrew Bond
+<b>Professor's Name :</b> Andrew Bond
 
-Team Name: Spartan Devs
+<b>Team Name:</b> Spartan Devs
 
-Team Members: <br/>
+<b>Team Members:</b> <br/>
 [Bhavya Hegde](www.linkedin.com/in/bhavya-hegde-145b9b123)<br/>
 [Darshini Venkatesha Murthy Nag](https://www.linkedin.com/in/darshini-venkatesha-murthy-nag-90052756/)<br/>
 [Sirisha Polisetty](https://www.linkedin.com/in/sirishapolisetty/)<br/>
@@ -26,12 +26,14 @@ Bookhouse is an enterprise ecommerce platform that aims to create a seamless onl
 ## Application Features
 ## Admin Features
 
-## Tools and Technologies used:
+## Tools and Technologies used
 * Frontend: HTML, CSS, Bootstrap, Javascript
 * Backend: Python Django framework
-* Other tools: Jenkins, Visual studio code, PyCharm.
+* Other tools: Jenkins, Visual studio code, PyCharm
   
 ## Architecture Diagram
+![bookhouse_architecture](https://user-images.githubusercontent.com/111547793/204049096-8391e996-7997-4bfe-8c8b-30d1100f2d29.png)
+
 ## AWS components
 * **Amazon RDS** : 
 * **Amazon S3** : 
