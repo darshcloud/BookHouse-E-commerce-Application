@@ -1,6 +1,5 @@
-node('jenkins'){
 pipeline { 
-    agent any
+    agent jenkins
 
     options {
         skipStagesAfterUnstable()
