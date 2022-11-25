@@ -1,5 +1,5 @@
 
-# CMPE 272 project of group SpartanDevs 
+# CMPE 272 Project of Group Spartan Devs 
 <b>Course Name :</b> Enterprise Software Platforms
 
 <b>Project Name  :</b> Bookhouse 
