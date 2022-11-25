@@ -1,16 +1,18 @@
 
 # CMPE 272 project of group SpartanDevs 
+Course Name : Enterprise Software Platforms - CMPE 272
 
-Project Name  : Bookhouse <br/><br/>
-Application URL : https://bookhouse.space <br/>
+Project Name  : Bookhouse 
+
+Application URL : https://bookhouse.space
 
 University Name : [San Jose State University](https://www.sjsu.edu/)
 
-Course Name : Enterprise Software Platforms - CMPE 272
+
 
 Professor's Name : Andrew Bond
 
-Team Name: Spartandevs
+Team Name: Spartan Devs
 
 Team Members: <br/>
 [Bhavya Hegde](www.linkedin.com/in/bhavya-hegde-145b9b123)<br/>
