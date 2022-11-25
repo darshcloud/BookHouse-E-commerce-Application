@@ -15,8 +15,7 @@ Team Name: Spartandevs
 - [Darshini Venkatesha Murthy Nag](https://www.linkedin.com/in/darshini-venkatesha-murthy-nag-90052756/)
 - [Sirisha Polisetty](https://www.linkedin.com/in/sirishapolisetty/)
 
-
-## Intro
+* Bookhouse is an enterprise ecommerce platform that aims to create a seamless online book shopping experience and helps brick-and-mortar book shops to digitize their businesses. Our website allows its users to browse through a vast collection of books, add books to the cart, and place an order using  payment method with shipping preferences. Our web application has two modes. One is a storefront for users to shop and track their book orders. Another one is admin management, where the bookhouse staff can maintain book stocks and facilitate shipping orders. Bookhouse web application will be developed using the Django framework with login, registration, cart, reviews, order, search, and payment processing capabilities. Bookhouse provides users the convenience of shopping for books from home. Bookhouse storefront will have features like search and pagination to provide ease of use for the  users to search books on the application. 
 
 ## Application Features
 ## Admin Features:
