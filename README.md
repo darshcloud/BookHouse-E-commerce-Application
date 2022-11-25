@@ -34,6 +34,52 @@ Team Name: Spartandevs
 
 
 ## Instructions to run project locally
+#### Create a virtual environment
+```
+python -m venv venv
+  ```
+#### Activate the virtual environment
+
+* macOS:
+```
+source venv/bin/activate
+```
+
+* Windows:
+```
+
+venv\scripts\activate
+```
+
+#### Install required dependencies
+```
+pip install -r requirements.txt
+```
+#### Set up environment variables
+```
+touch .env
+```
+#### We need to add below details in env
+```
+
+```
+
+#### Run migrations
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
+#### Create an admin user to access the Django Admin interface
+```
+python manage.py createsuperuser
+```
+
+#### Run the application
+```
+python manage.py runserver
+```
+
 
 
 ## Sample Demo screenshots
