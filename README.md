@@ -8,7 +8,8 @@ Course Name : Enterprise Software Platforms - CMPE272
 
 Professor's Name : [Andrew Bond]
 
-Team Name: Spartendevs
+Team Name: Spartandevs
+
 - Team Members:
 - [Bhavya Hegde](www.linkedin.com/in/bhavya-hegde-145b9b123)
 - [Darshini Venkatesha Murthy Nag](https://www.linkedin.com/in/darshini-venkatesha-murthy-nag-90052756/)
