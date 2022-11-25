@@ -24,7 +24,7 @@ pipeline {
             steps {
                 sh 'echo "SpartanDevs"'
                 sh 'pip3 install virtualenv'
-                sh 'python -m venv spartandevs'
+                sh 'python3 -m venv spartandevs'
                 sh 'source spartandevs/bin/activate'
                 sh 'pip3 install awscli'
                 sh 'touch calorietracker.tar.gz'
