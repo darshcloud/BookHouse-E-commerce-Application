@@ -42,7 +42,7 @@ pipeline {
                 sh 'python3 -m venv spartandevs'
                 sh 'source spartandevs/bin/activate'
                 sh 'pip3 install awscli'
-                sh 'touch calorietracker.tar.gz'
+                sh 'touch bookhouse.tar.gz'
                 sh 'pip3 install -r ./requirements.txt'
                 sh 'pip3 install awscli'
                 sh 'touch bookhouse.tar.gz'
