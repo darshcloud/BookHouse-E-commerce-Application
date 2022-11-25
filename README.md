@@ -21,8 +21,9 @@ Team Name: Spartandevs
 ## Admin Features:
 
 ## Tools and Technologies used:
-
-  
+* Frontend: HTML,Bootstrap, ChartJs
+* Backend: Python Django framework
+* Other tools: Jenkins, Visual studio code.
   
 ## Architecture Diagram
 ## AWS components
