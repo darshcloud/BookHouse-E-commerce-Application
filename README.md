@@ -27,9 +27,9 @@ Bookhouse is an enterprise ecommerce platform that aims to create a seamless onl
 ## Admin Features
 
 ## Tools and Technologies used:
-* Frontend: HTML,Bootstrap, ChartJs
+* Frontend: HTML, CSS, Bootstrap, Javascript
 * Backend: Python Django framework
-* Other tools: Jenkins, Visual studio code.
+* Other tools: Jenkins, Visual studio code, PyCharm.
   
 ## Architecture Diagram
 ## AWS components
