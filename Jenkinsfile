@@ -56,11 +56,11 @@ pipeline {
     post {
         success {
             withCredentials([usernamePassword(credentialsId: 'sirishacyd', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                sh 'curl -X POST --user $USERNAME:$PASSWORD --data  "{\\"state\\": \\"success\\",\\"target_url\\": \\"${BUILD_URL}\\",\\"description\\": \\"The build has succeeded!\\"}" --url https://api.github.com/repos/hegdebhavya/Spartandevs/statuses/$GIT_COMMIT'}
+                sh 'curl -X POST --user $USERNAME:$PASSWORD --data  "{\\"state\\": \\"success\\",\\"context\\": \\"continuous-integration/jenkins\\",\\"target_url\\": \\"${BUILD_URL}\\",\\"description\\": \\"The build has succeeded!\\"}" --url https://api.github.com/repos/hegdebhavya/Spartandevs/statuses/$GIT_COMMIT'}
             }
         failure {
             withCredentials([usernamePassword(credentialsId: 'sirishacyd', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                sh 'curl -X POST --user $USERNAME:$PASSWORD --data  "{\\"state\\": \\"failure\\",\\"target_url\\": \\"${BUILD_URL}\\",\\"description\\": \\"The build has failed!\\"}" --url https://api.github.com/repos/hegdebhavya/Spartandevs/statuses/$GIT_COMMIT'}
+                sh 'curl -X POST --user $USERNAME:$PASSWORD --data  "{\\"state\\": \\"failure\\",\\"context\\": \\"continuous-integration/jenkins\\",\\"target_url\\": \\"${BUILD_URL}\\",\\"description\\": \\"The build has failed!\\"}" --url https://api.github.com/repos/hegdebhavya/Spartandevs/statuses/$GIT_COMMIT'}
             }
     }
 }
