@@ -5,6 +5,11 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
+        stage('cleanup') { 
+            steps { 
+                sh 'rm -rf spartandevs' 
+            }
+        }
         stage('Build') { 
             steps { 
                 sh 'pip3 install -r requirements.txt' 
