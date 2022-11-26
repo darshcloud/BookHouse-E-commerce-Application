@@ -124,4 +124,6 @@ python manage.py runserver
 
 
 ## References
+AWS Documentation: https://docs.aws.amazon.com/
 
+Book Images: https://www.amazon.com/ 
