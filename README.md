@@ -54,13 +54,7 @@ Other tools: Jenkins, Visual studio code, PyCharm<br/>
 ## Architecture Diagram
 ![bookhouse_architecture](https://user-images.githubusercontent.com/111547793/204049096-8391e996-7997-4bfe-8c8b-30d1100f2d29.png)
 
-## AWS components
-* **Amazon RDS** : 
-* **Amazon S3** : 
-* **Amazon EC2** : 
-* **Amazon Route 53** :
-* **Amazon Certificate Manager** :
-* **Elastic Load Balancer (Application Load Balancer)** :
+
 
 #### CI/CD Pipeline
 
@@ -127,3 +121,5 @@ python manage.py runserver
 AWS Documentation: https://docs.aws.amazon.com/
 
 Book Images: https://www.amazon.com/ 
+
+Deploy django app with https, gunicorn and Nginx : https://realpython.com/django-nginx-gunicorn/
