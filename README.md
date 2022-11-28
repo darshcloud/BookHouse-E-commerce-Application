@@ -57,7 +57,7 @@ AWS components: EC2, Route 53, ELB, RDS posgres , certificate manager
 
 
 
-#### CI/CD Pipeline
+##CI/CD Pipeline
 
 
 ## Instructions to run project locally
