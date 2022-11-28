@@ -50,7 +50,7 @@ Bookhouse is an enterprise ecommerce platform that aims to create a seamless onl
 Frontend: HTML, CSS, Bootstrap, Javascript<br/>
 Backend: Python Django framework<br/>
 Other tools: Jenkins, Visual studio code, PyCharm<br/>
-AWS components: EC2, Route 53, ELB, RDS posgres , certificate manager
+AWS components: EC2, Route 53, ELB, RDS postgreSQL, s3, certificate manager
   
 ## Architecture Diagram
 ![bookhouse_architecture](https://user-images.githubusercontent.com/111547793/204049096-8391e996-7997-4bfe-8c8b-30d1100f2d29.png)
