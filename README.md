@@ -24,22 +24,22 @@
 Bookhouse is an enterprise ecommerce platform that aims to create a seamless online book shopping experience and helps brick-and-mortar book shops to digitize their businesses. Our website allows its users to browse through a vast collection of books, add books to the cart, and place an order using  payment method with shipping preferences. Our web application has two modes. One is a storefront for users to shop and track their book orders. Another one is admin management, where the bookhouse staff can maintain book stocks and facilitate shipping orders. Bookhouse web application will be developed using the Django framework with login, registration, cart, reviews, order, search, and payment processing capabilities. Bookhouse provides users the convenience of shopping for books from home. Bookhouse storefront will have features like search and pagination to provide ease of use for the  users to search books on the application. 
 
 ## Application Features
-* Users can browse through wide variety of books
-* Users can browse books through specific book category
-* Search Functionality - Users can search books by book name
+* Wide variety of books available for purchase
+* Various book categories
+* Book Search Functionality, either by book name or by category
 * Custom Login and SSO login Integration for signing into the application
 * Shopping cart and Checkout functionality
 * Paypal Integration for payment
 * SSL certificate installation
 * Jenkins for CI/CD pipeline
 
-## Admin Features
+## Bookhouse admin Features
 * Book administrators can manage book stocks
 * Manage book orders
 * Addition, Update and Deletion of book details such as book category, book price and book description
 * Manage Users
 
-## Additional Features
+## Additional Application Features
 * Dashboard view - Users can view details about current and previous orders and can update profile
 * Review and Rating System - Users can post rating and reviews about the book which they have purchased
 * Preview of the book content is provided for the users
@@ -50,6 +50,7 @@ Bookhouse is an enterprise ecommerce platform that aims to create a seamless onl
 Frontend: HTML, CSS, Bootstrap, Javascript<br/>
 Backend: Python Django framework<br/>
 Other tools: Jenkins, Visual studio code, PyCharm<br/>
+AWS components: EC2, Route 53, ELB, RDS posgres , certificate manager
   
 ## Architecture Diagram
 ![bookhouse_architecture](https://user-images.githubusercontent.com/111547793/204049096-8391e996-7997-4bfe-8c8b-30d1100f2d29.png)
