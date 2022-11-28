@@ -57,8 +57,8 @@ AWS components: EC2, Route 53, ELB, RDS posgres , certificate manager
 
 
 
-## CI/CD Pipeline
-
+#### CI/CD Pipeline
+* Jenkins, Amazon S3, Ubuntu and crontab for CI/CD of this project.
 
 ## Instructions to run project locally
 #### Create a virtual environment
