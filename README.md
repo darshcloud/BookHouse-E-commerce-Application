@@ -112,11 +112,10 @@ python manage.py createsuperuser
 ```
 python manage.py runserver
 ```
-
-
-
 ## Sample Demo screenshots
-
+![login](screenshots/login.gif)
+![app](screenshots/app.gif)
+![cart](screenshots/app.gif)
 
 ## References
 AWS Documentation: https://docs.aws.amazon.com/
