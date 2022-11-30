@@ -120,6 +120,8 @@ python manage.py runserver
 
 ![cart](screenshots/cart.gif)
 
+![admin](screenshots/admin.gif)
+
 ## References
 AWS Documentation: https://docs.aws.amazon.com/
 
