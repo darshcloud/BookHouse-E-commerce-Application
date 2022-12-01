@@ -125,6 +125,6 @@ python manage.py runserver
 ## References
 AWS Documentation: https://docs.aws.amazon.com/
 
-Book Images: https://www.amazon.com/ 
+Book Images Source: https://www.amazon.com/ 
 
 Deploy django app with https, gunicorn and Nginx : https://realpython.com/django-nginx-gunicorn/
